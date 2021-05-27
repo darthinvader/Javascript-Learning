@@ -10,16 +10,28 @@ document.querySelector('.check').addEventListener('click', function () {
 
   console.log(guess, typeof guess);
 
+  if (score == 0) {
+    return;
+  }
+
   if (!guess) {
     document.querySelector('.message').textContent = '⛔No Number!';
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉Correct Number';
   } else if (guess > secretNumber) {
+    document.querySelector('.message').textContent = 'Too high';
+
+    if (score == 1) {
+      document.querySelector('.message').textContent = 'You lost the game!';
+    }
     score--;
-    document.querySelector('.message').textContent = 'Too highx';
   } else if (guess < secretNumber) {
-    score--;
     document.querySelector('.message').textContent = 'Too low';
+
+    if (score == 1) {
+      document.querySelector('.message').textContent = 'You lost the game!';
+    }
+    score--;
   }
 
   document.querySelector('.score').textContent = score;
