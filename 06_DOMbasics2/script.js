@@ -18,6 +18,14 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 }
 
 function closeModal() {
-  modal.classList.add('hidden');
-  overlay.classList.add('hidden');
+  if (!modal.classList.contains('hidden')) {
+    modal.classList.add('hidden');
+    overlay.classList.add('hidden');
+  }
 }
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  }
+});
