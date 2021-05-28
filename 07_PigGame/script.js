@@ -29,6 +29,25 @@ let currentScore = 0;
 let activePlayer = 0;
 let playing = true;
 
+const init = function () {
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  current0Ek.textContent = 0;
+  current1Ek.textContent = 0;
+  diceEl.classList.add('hidden');
+
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+
+  scores[0] = scores[1] = 0;
+  currentScore = 0;
+  activePlayer = 0;
+  playing = true;
+};
+
 const switchPlayer = function () {
   currentScore = 0;
   document.getElementById(`current--${activePlayer}`).textContent =
@@ -89,3 +108,5 @@ btnHold.addEventListener('click', function () {
 
   // Switch to the next player
 });
+
+btnNew.addEventListener('click', init);
