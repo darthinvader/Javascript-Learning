@@ -481,28 +481,161 @@ const restaurant = {
 // console.log(question.keys());
 // console.log(question.values());
 
-const gameEvents = new Map([
-  [17, '⚽️ GOAL'],
-  [36, '🔁 Substitution'],
-  [47, '⚽️ GOAL'],
-  [61, '🔁 Substitution'],
-  [64, '🔶 Yellow card'],
-  [69, '🔴 Red card'],
-  [70, '🔁 Substitution'],
-  [72, '🔁 Substitution'],
-  [76, '⚽️ GOAL'],
-  [80, '⚽️ GOAL'],
-  [92, '🔶 Yellow card'],
-]);
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-const events = new Set(gameEvents.values());
-console.log(events);
+// const events = new Set(gameEvents.values());
+// console.log(events);
 
-gameEvents.delete(64);
-console.log(gameEvents);
+// gameEvents.delete(64);
+// console.log(gameEvents);
 
-for (const [minute, event] of gameEvents) {
-  console.log(
-    `[${minute < 45 ? 'First Half' : 'Second half'}] ${minute}: ${event}`
-  );
-}
+// for (const [minute, event] of gameEvents) {
+//   console.log(
+//     `[${minute < 45 ? 'First Half' : 'Second half'}] ${minute}: ${event}`
+//   );
+// }
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+console.log(plane[0]);
+console.log(Number(plane[1]));
+console.log(plane[2]);
+
+console.log(airline.indexOf('r'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-8));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  s === 'B' || s === 'E' ? console.log('Middle') : console.log('Not Middle');
+};
+
+checkMiddleSeat('11B');
+
+checkMiddleSeat('23C');
+
+checkMiddleSeat('2E');
+
+console.log(new String('Jonas'));
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'joNas';
+
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+
+console.log(passengerCorrect);
+
+// Comparing email
+const email = 'hello@jonas.io';
+const loginEmail = '   Hello@Jonas.io \n';
+
+const lowerEmail = loginEmail.toLowerCase();
+const trimmedEmail = lowerEmail.trim();
+console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+
+console.log(normalizedEmail === trimmedEmail);
+
+// replacing
+
+const priceGB = '288.97$';
+
+const priceUS = priceGB.replace('.', ',');
+console.log(priceUS);
+
+const announcement =
+  'All passenger come to boarding door 23.  Boarding door 23!';
+
+console.log(announcement.replaceAll('door', 'gate'));
+
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+
+const plane2 = 'A320neo';
+console.log(plane2.includes('A320'));
+
+console.log(plane.startsWith('A320'));
+
+// Practice
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are not allowed on board');
+  } else {
+    console.log('Welcome aboard');
+  }
+};
+checkBaggage('I have a laptop, some foof and a pocket knife');
+checkBaggage('Socks and camera');
+checkBaggage('Snacks and a gun');
+
+console.log('a+vert+nice+day'.split('+'));
+
+const firstName = 'Jonas';
+const lastName = 'Sme';
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const names = name.split(' ');
+
+  for (const name of names) {
+    console.log(name[0].toUpperCase() + name.toLowerCase().slice(1));
+  }
+};
+
+capitalizeName('jessica ann smith davis');
+capitalizeName('jonas schemneb');
+
+const message = 'Go to gate 23';
+
+console.log(message.padStart(25, '+'));
+console.log('Jonas'.padStart(23).padEnd(25, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(-4);
+  console.log(last.padStart(str.length, '*'));
+};
+
+maskCreditCard(854567898654342323134);
+
+// Repeat
+
+const message3 = 'Bad weather .... All Departures Delayed';
+
+console.log(message3.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`There are ${n} plances in line ${'✈'.repeat(n)}`);
+};
+
+planesInLine(100);
