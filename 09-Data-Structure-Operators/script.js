@@ -175,12 +175,19 @@ const restaurant = {
 // const guests = restaurant.numGuest || 10;
 // console.log(guests);
 
-console.log(0 && 'Jonas');
-console.log(1 && 2);
-console.log(7 && 'Jonas');
+// console.log(0 && 'Jonas');
+// console.log(1 && 2);
+// console.log(7 && 'Jonas');
 
-if (restaurant.orderPizza) {
-  restaurant.orderPizza('mushrooms', 'spinach');
-}
+// if (restaurant.orderPizza) {
+//   restaurant.orderPizza('mushrooms', 'spinach');
+// }
 
-console.log(restaurant.orderPizza && restaurant.orderPizza('spinach'));
+// console.log(restaurant.orderPizza && restaurant.orderPizza('spinach'));
+
+// restaurant.numGuests = 0;
+// const guests = restaurant.numGuests || 10;
+// console.log(guests);
+
+// const guestCorrect = restaurant.numGuests ?? 10;
+// console.log(guestCorrect);
