@@ -272,3 +272,19 @@ const restaurant = {
 // isTeam2BetterThanTeam1 && console.log('Team2');
 
 // !isTeam2BetterThanTeam1 && console.log('Team1');
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+for (const item of menu.entries()) {
+  console.log(item);
+}
+
+for (const [i, el] of menu.entries()) {
+  console.log(i, el);
+}
+
+console.log(menu.entries());
