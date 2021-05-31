@@ -191,3 +191,84 @@ const restaurant = {
 
 // const guestCorrect = restaurant.numGuests ?? 10;
 // console.log(guestCorrect);
+
+// const game = {
+//   team1: 'Bayern Munich',
+//   team2: 'Borrussia Dortmund',
+//   players: [
+//     [
+//       'Neuer',
+//       'Pavard',
+//       'Martinez',
+//       'Alaba',
+//       'Davies',
+//       'Kimmich',
+//       'Goretzka',
+//       'Coman',
+//       'Muller',
+//       'Gnarby',
+//       'Lewandowski',
+//     ],
+//     [
+//       'Burki',
+//       'Schulz',
+//       'Hummels',
+//       'Akanji',
+//       'Hakimi',
+//       'Weigl',
+//       'Witsel',
+//       'Hazard',
+//       'Brandt',
+//       'Sancho',
+//       'Gotze',
+//     ],
+//   ],
+//   score: '4:0',
+//   scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+//   date: 'Nov 9th, 2037',
+//   odds: {
+//     team1: 1.33,
+//     x: 3.25,
+//     team2: 6.5,
+//   },
+// };
+
+// const [players1, players2] = [...game.players];
+// console.log(players2);
+// const [gk, ...fieldPlayers] = players1;
+// console.log(fieldPlayers);
+
+// const allPlayers = [...players1, ...players2];
+// console.log(allPlayers);
+
+// const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
+// console.log(players1Final);
+
+// const { team1, draw, team2 } = { ...game.odds };
+// console.log(team1);
+
+// function printGoals(...goals) {
+//   let sum = 0;
+//   for (let i = 0; i < goals.length; i++) {
+//     sum += goals[i];
+//   }
+//   console.log(sum);
+// }
+
+// printGoals(1, 2, 3, 4, 5);
+// NEVER MIND TUTORIAL IS NOT SO GOOD!!!!
+// function printGoals(...players) {
+//   let sum = 0;
+//   for (let i = 0; i < players.length; i++) {
+//     sum += players[i] in game.scored && 1;
+//   }
+//   console.log(sum);
+// }
+
+// printGoals('Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels');
+
+// const isTeam2BetterThanTeam1 = team1 < team2;
+
+// isTeam2BetterThanTeam1 && console.log('Team2');
+
+// !isTeam2BetterThanTeam1 && console.log('Team1');
