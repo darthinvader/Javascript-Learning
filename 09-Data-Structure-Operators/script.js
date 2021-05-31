@@ -49,7 +49,24 @@ const restaurant = {
   },
 };
 
-console.log(restaurant);
+// console.log(restaurant.openingHours.mon.open);
+
+// Optional Chainging
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(open);
+}
+
+console.log(restaurant.openingHours?.mon?.open);
+
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }];
+console.log(users[0]?.name ?? 'User Array empty');
+
 // restaurant.orderDelivery(restaurant);
 
 // const { name, categories, openingHours } = restaurant;
