@@ -312,21 +312,90 @@ const restaurant = {
 
 // console.log(menu.entries());
 
-const properties = Object.keys(openingHours);
-console.log(properties);
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `We are open on  ${properties.length} days: `;
+// let openStr = `We are open on  ${properties.length} days: `;
 
-for (const day of properties) {
-  openStr += `${day}, `;
+// for (const day of properties) {
+//   openStr += `${day}, `;
+// }
+
+// const values = Object.values(openingHours);
+// console.log(values);
+
+// const entries = Object.entries(openingHours);
+// console.log(entries);
+
+// for (const [key, { open, close }] of entries) {
+//   console.log(`On ${key} we open at ${open} and close at ${close}`);
+// }
+
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [
+    [
+      'Neuer',
+      'Pavard',
+      'Martinez',
+      'Alaba',
+      'Davies',
+      'Kimmich',
+      'Goretzka',
+      'Coman',
+      'Muller',
+      'Gnarby',
+      'Lewandowski',
+    ],
+    [
+      'Burki',
+      'Schulz',
+      'Hummels',
+      'Akanji',
+      'Hakimi',
+      'Weigl',
+      'Witsel',
+      'Hazard',
+      'Brandt',
+      'Sancho',
+      'Gotze',
+    ],
+  ],
+  score: '4:0',
+  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  date: 'Nov 9th, 2037',
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+for (const player of game.scored) {
+  console.log(`Goal 1 ${player}`);
+}
+let sum = 0;
+for (const odd in Object.values(game.odds)) {
+  sum += odd;
+}
+let averageOdd = sum / Object.values(game.odds).length;
+
+console.log(averageOdd);
+
+console.log(
+  `Odd of victory ${game[Object.keys(game.odds)[0]]}: ${game.odds.team1}`
+);
+
+console.log(`Odd of draw: ${game.odds.x}`);
+
+console.log(
+  `Odd of victory ${game[Object.keys(game.odds)[2]]}: ${game.odds.team2}`
+);
+
+const scorers = {};
+for (const player of game.scored) {
+  scorers[player] ? scorers[player]++ : (scorers[player] = 1);
 }
 
-const values = Object.values(openingHours);
-console.log(values);
-
-const entries = Object.entries(openingHours);
-console.log(entries);
-
-for (const [key, { open, close }] of entries) {
-  console.log(`On ${key} we open at ${open} and close at ${close}`);
-}
+console.log(scorers);
