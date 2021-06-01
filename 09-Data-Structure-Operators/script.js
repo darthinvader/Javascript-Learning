@@ -507,135 +507,177 @@ const restaurant = {
 //   );
 // }
 
-const airline = 'TAP Air Portugal';
-const plane = 'A320';
-console.log(plane[0]);
-console.log(Number(plane[1]));
-console.log(plane[2]);
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
+// console.log(plane[0]);
+// console.log(Number(plane[1]));
+// console.log(plane[2]);
 
-console.log(airline.indexOf('r'));
+// console.log(airline.indexOf('r'));
 
-console.log(airline.slice(4));
-console.log(airline.slice(4, 7));
+// console.log(airline.slice(4));
+// console.log(airline.slice(4, 7));
 
-console.log(airline.slice(0, airline.indexOf(' ')));
+// console.log(airline.slice(0, airline.indexOf(' ')));
 
-console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+// console.log(airline.slice(airline.lastIndexOf(' ') + 1));
 
-console.log(airline.slice(-8));
-console.log(airline.slice(1, -1));
+// console.log(airline.slice(-8));
+// console.log(airline.slice(1, -1));
 
-const checkMiddleSeat = function (seat) {
-  // B and E are middle seats
-  const s = seat.slice(-1);
-  s === 'B' || s === 'E' ? console.log('Middle') : console.log('Not Middle');
-};
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   const s = seat.slice(-1);
+//   s === 'B' || s === 'E' ? console.log('Middle') : console.log('Not Middle');
+// };
 
-checkMiddleSeat('11B');
+// checkMiddleSeat('11B');
 
-checkMiddleSeat('23C');
+// checkMiddleSeat('23C');
 
-checkMiddleSeat('2E');
+// checkMiddleSeat('2E');
 
-console.log(new String('Jonas'));
+// console.log(new String('Jonas'));
 
-console.log(airline.toLowerCase());
-console.log(airline.toUpperCase());
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
 
-const passenger = 'joNas';
+// const passenger = 'joNas';
 
-const passengerLower = passenger.toLowerCase();
-const passengerCorrect =
-  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+// const passengerLower = passenger.toLowerCase();
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
 
-console.log(passengerCorrect);
+// console.log(passengerCorrect);
 
-// Comparing email
-const email = 'hello@jonas.io';
-const loginEmail = '   Hello@Jonas.io \n';
+// // Comparing email
+// const email = 'hello@jonas.io';
+// const loginEmail = '   Hello@Jonas.io \n';
 
-const lowerEmail = loginEmail.toLowerCase();
-const trimmedEmail = lowerEmail.trim();
-console.log(trimmedEmail);
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
 
-const normalizedEmail = loginEmail.toLowerCase().trim();
-console.log(normalizedEmail);
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
 
-console.log(normalizedEmail === trimmedEmail);
+// console.log(normalizedEmail === trimmedEmail);
 
-// replacing
+// // replacing
 
-const priceGB = '288.97$';
+// const priceGB = '288.97$';
 
-const priceUS = priceGB.replace('.', ',');
-console.log(priceUS);
+// const priceUS = priceGB.replace('.', ',');
+// console.log(priceUS);
 
-const announcement =
-  'All passenger come to boarding door 23.  Boarding door 23!';
+// const announcement =
+//   'All passenger come to boarding door 23.  Boarding door 23!';
 
-console.log(announcement.replaceAll('door', 'gate'));
+// console.log(announcement.replaceAll('door', 'gate'));
 
-console.log(announcement.replace(/door/g, 'gate'));
+// console.log(announcement.replace(/door/g, 'gate'));
 
-// Booleans
+// // Booleans
 
-const plane2 = 'A320neo';
-console.log(plane2.includes('A320'));
+// const plane2 = 'A320neo';
+// console.log(plane2.includes('A320'));
 
-console.log(plane.startsWith('A320'));
+// console.log(plane.startsWith('A320'));
 
-// Practice
-const checkBaggage = function (items) {
-  const baggage = items.toLowerCase();
-  if (baggage.includes('knife') || baggage.includes('gun')) {
-    console.log('You are not allowed on board');
-  } else {
-    console.log('Welcome aboard');
-  }
-};
-checkBaggage('I have a laptop, some foof and a pocket knife');
-checkBaggage('Socks and camera');
-checkBaggage('Snacks and a gun');
+// // Practice
+// const checkBaggage = function (items) {
+//   const baggage = items.toLowerCase();
+//   if (baggage.includes('knife') || baggage.includes('gun')) {
+//     console.log('You are not allowed on board');
+//   } else {
+//     console.log('Welcome aboard');
+//   }
+// };
+// checkBaggage('I have a laptop, some foof and a pocket knife');
+// checkBaggage('Socks and camera');
+// checkBaggage('Snacks and a gun');
 
-console.log('a+vert+nice+day'.split('+'));
+// console.log('a+vert+nice+day'.split('+'));
 
-const firstName = 'Jonas';
-const lastName = 'Sme';
-const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
-console.log(newName);
+// const firstName = 'Jonas';
+// const lastName = 'Sme';
+// const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+// console.log(newName);
 
-const capitalizeName = function (name) {
-  const names = name.split(' ');
+// const capitalizeName = function (name) {
+//   const names = name.split(' ');
 
-  for (const name of names) {
-    console.log(name[0].toUpperCase() + name.toLowerCase().slice(1));
-  }
-};
+//   for (const name of names) {
+//     console.log(name[0].toUpperCase() + name.toLowerCase().slice(1));
+//   }
+// };
 
-capitalizeName('jessica ann smith davis');
-capitalizeName('jonas schemneb');
+// capitalizeName('jessica ann smith davis');
+// capitalizeName('jonas schemneb');
 
-const message = 'Go to gate 23';
+// const message = 'Go to gate 23';
 
-console.log(message.padStart(25, '+'));
-console.log('Jonas'.padStart(23).padEnd(25, '+'));
+// console.log(message.padStart(25, '+'));
+// console.log('Jonas'.padStart(23).padEnd(25, '+'));
 
-const maskCreditCard = function (number) {
-  const str = number + '';
-  const last = str.slice(-4);
-  console.log(last.padStart(str.length, '*'));
-};
+// const maskCreditCard = function (number) {
+//   const str = number + '';
+//   const last = str.slice(-4);
+//   console.log(last.padStart(str.length, '*'));
+// };
 
-maskCreditCard(854567898654342323134);
+// maskCreditCard(854567898654342323134);
 
-// Repeat
+// // Repeat
 
-const message3 = 'Bad weather .... All Departures Delayed';
+// const message3 = 'Bad weather .... All Departures Delayed';
 
-console.log(message3.repeat(5));
+// console.log(message3.repeat(5));
 
-const planesInLine = function (n) {
-  console.log(`There are ${n} plances in line ${'✈'.repeat(n)}`);
-};
+// const planesInLine = function (n) {
+//   console.log(`There are ${n} plances in line ${'✈'.repeat(n)}`);
+// };
 
-planesInLine(100);
+// planesInLine(100);
+
+// Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+
+// The input will come from a textarea inserted into the DOM (see code below), and conversion will happen when the button is pressed.
+
+// THIS TEST DATA (pasted to textarea)
+// underscore_case
+//  first_name
+// Some_Variable
+//   calculate_AGE
+// delayed_departure
+
+// SHOULD PRODUCE THIS OUTPUT (5 separate console.log outputs)
+// underscoreCase      ✅
+// firstName           ✅✅
+// someVariable        ✅✅✅
+// calculateAge        ✅✅✅✅
+// delayedDeparture    ✅✅✅✅✅
+
+// HINT 1: Remember which character defines a new line in the textarea 😉
+// HINT 2: The solution only needs to work for a variable made out of 2 words, like a_b
+// HINT 3: Start without worrying about the ✅. Tackle that only after you have the variable name conversion working 😉
+// HINT 4: This challenge is difficult on purpose, so start watching the solution in case you're stuck. Then pause and continue!
+
+// Afterwards, test with your own test data!
+
+// GOOD LUCK 😀
+// document.body.append(document.createElement('textarea'));
+// document.body.append(document.createElement('button'));
+
+// const text = document.querySelector('textarea').value;
+
+// lines = text.toLowerCase().split('\n');
+
+// for (const line of lines) {
+//   let words = line.split('_');
+//   word1 = words
+//   for (const word of words){
+
+//   }
+
+// }
