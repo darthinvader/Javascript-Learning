@@ -229,15 +229,26 @@ console.log(accounts);
 // console.log(withdrawals);
 
 // REDUCE
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const balance = movements.reduce((acc, cur) => acc + cur, 0);
+// const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-console.log(balance);
-// Maximum value
+// console.log(balance);
+// // Maximum value
 
-const maximum = movements.reduce(
-  (acc, val) => (acc < val ? val : acc),
-  movements[0]
-);
-console.log(maximum);
+// const maximum = movements.reduce(
+//   (acc, val) => (acc < val ? val : acc),
+//   movements[0]
+// );
+// console.log(maximum);
+
+const calcAverageHumanAge = function (ages) {
+  const humanAges = ages
+    .map(age => (age <= 2 ? age * 2 : 16 + 4 * age))
+    .filter(age => age > 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+  console.log(humanAges);
+};
+
+calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
