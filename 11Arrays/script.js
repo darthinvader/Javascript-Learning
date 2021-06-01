@@ -78,8 +78,13 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-
 displayMovements(account1.movements);
+
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance} EUR`;
+};
+calcDisplayBalance(account1.movements);
 // console.log(containerMovements.innerHTML);
 
 const user = 'Steven Thomas Williams';
@@ -96,7 +101,9 @@ const createUsernames = function (accounts) {
 // console.log();
 
 console.log(createUsernames(accounts));
+
 console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -213,10 +220,24 @@ console.log(accounts);
 
 // console.log(k);
 
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const deposits = movements.filter(mov => mov > 0);
+// const withdrawals = movements.filter(mov => mov <= 0);
+
+// console.log(deposits);
+// console.log(withdrawals);
+
+// REDUCE
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-const deposits = movements.filter(mov => mov > 0);
-const withdrawals = movements.filter(mov => mov <= 0);
+const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
-console.log(deposits);
-console.log(withdrawals);
+console.log(balance);
+// Maximum value
+
+const maximum = movements.reduce(
+  (acc, val) => (acc < val ? val : acc),
+  movements[0]
+);
+console.log(maximum);
