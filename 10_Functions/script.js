@@ -300,3 +300,11 @@
 
 // const perGroup = 100;
 // boardPasengers(180, 3);
+
+// (function () {
+//   const header = document.querySelector('h1');
+//   header.style.color = 'red';
+//   header.addEventListener('click', () => {
+//     header.style.color = 'blue';
+//   });
+// })();
