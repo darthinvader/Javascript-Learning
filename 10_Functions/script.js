@@ -209,9 +209,94 @@
 // poll.displayResults();
 // poll.displayResults('string');
 
-(function () {
-  console.log('This will never run again');
-  const isPrivate = 23;
-})();
+// (function () {
+//   console.log('This will never run again');
+//   const isPrivate = 23;
+// })();
 
-(() => console.log('This will also never run again'))();
+// (() => console.log('This will also never run again'))();
+
+// const secureBooking = function () {
+//   let passengerCount = 0;
+
+//   return function () {
+//     passengerCount++;
+//     console.log(`${passengerCount} passengers`);
+//   };
+// };
+
+// const booker = secureBooking();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+// booker();
+
+// console.dir(booker);
+
+// const secSecBook = function () {
+//   let passengerCount = 0;
+
+//   return function () {
+//     let passengerCount2 = 0;
+
+//     return function () {
+//       passengerCount++;
+//       passengerCount2++;
+//       console.log(passengerCount);
+//       console.log(passengerCount2);
+//     };
+//   };
+// };
+
+// const secBook = secSecBook();
+
+// const book = secBook();
+
+// book();
+// book();
+// book();
+// // book();
+
+// let f;
+
+// const g = function () {
+//   const a = 23;
+//   f = function () {
+//     console.log(a * 2);
+//   };
+// };
+
+// g();
+// f();
+
+// const h = function () {
+//   const b = 777;
+//   f = function () {
+//     console.log(b * 2);
+//   };
+// };
+
+// h();
+// f();
+
+// // Example 2
+// const boardPasengers = function (n, wait) {
+//   // const perGroup = n / 3;
+
+//   setTimeout(function () {
+//     console.log(`We are now boarding all ${n} passengers`);
+//     console.log(`There are 3 groups each with ${perGroup} passengers`);
+//   }, wait * 1000);
+
+//   console.log(`Will start boarding in ${wait} seconds`);
+// };
+
+// const perGroup = 100;
+// boardPasengers(180, 3);
