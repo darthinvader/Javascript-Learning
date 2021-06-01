@@ -176,35 +176,42 @@
 
 // console.log(addVAT2(200));
 
-const poll = {
-  question: 'What is your favorite programming language?',
-  options: ['0:Javascript', '1:Python', '2:Rust', '3:C++'],
-  answer: new Array(4).fill(0),
-  registerNewAnswer() {
-    let answer = Number(
-      prompt(
-        'What is your favorite programming language?\n0: Javascript\n1:Python\n2:Rust\n3:C++\nWrite Option number'
-      )
-    );
-    if (answer === 'number' && answer >= 0 && answer <= 3) {
-      this.answer[answer]++;
-      console.log(this.answer);
-    } else {
-      console.log('Wrong Number');
-    }
-  },
+// const poll = {
+//   question: 'What is your favorite programming language?',
+//   options: ['0:Javascript', '1:Python', '2:Rust', '3:C++'],
+//   answer: new Array(4).fill(0),
+//   registerNewAnswer() {
+//     let answer = Number(
+//       prompt(
+//         'What is your favorite programming language?\n0: Javascript\n1:Python\n2:Rust\n3:C++\nWrite Option number'
+//       )
+//     );
+//     if (answer === 'number' && answer >= 0 && answer <= 3) {
+//       this.answer[answer]++;
+//       console.log(this.answer);
+//     } else {
+//       console.log('Wrong Number');
+//     }
+//   },
 
-  displayResults(type = 'array') {
-    if (type === 'array') {
-      console.log(this.answer);
-    } else if (type == 'string') {
-      console.log(`The answer were: ${this.answer.join(',')}`);
-    }
-  },
-};
-document
-  .querySelector('.poll')
-  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+//   displayResults(type = 'array') {
+//     if (type === 'array') {
+//       console.log(this.answer);
+//     } else if (type == 'string') {
+//       console.log(`The answer were: ${this.answer.join(',')}`);
+//     }
+//   },
+// };
+// document
+//   .querySelector('.poll')
+//   .addEventListener('click', poll.registerNewAnswer.bind(poll));
 
-poll.displayResults();
-poll.displayResults('string');
+// poll.displayResults();
+// poll.displayResults('string');
+
+(function () {
+  console.log('This will never run again');
+  const isPrivate = 23;
+})();
+
+(() => console.log('This will also never run again'))();
