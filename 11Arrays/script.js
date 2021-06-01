@@ -166,14 +166,33 @@ console.log(containerMovements.innerHTML);
 //   console.log(`${value}`);
 // });
 
-const checkDogs = (dogsJulia, dogsKate) => {
-  dogsJulia = dogsJulia.slice(1);
-  dogsJulia = dogsJulia.slice(0, -2);
-  console.log(dogsJulia);
+// const checkDogs = (dogsJulia, dogsKate) => {
+//   dogsJulia = dogsJulia.slice(1);
+//   dogsJulia = dogsJulia.slice(0, -2);
+//   console.log(dogsJulia);
 
-  dogsJulia.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
-  dogsKate.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
-};
+//   dogsJulia.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
+//   dogsKate.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
+// };
 
-const dogsJulia = [1, 2, 3, 4, 5, 6];
-checkDogs(dogsJulia, [1, 2, 3, 4]);
+// const dogsJulia = [1, 2, 3, 4, 5, 6];
+// checkDogs(dogsJulia, [1, 2, 3, 4]);
+
+//  map method
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
+// const movToUsd = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+// const movToUsd = movements.map(mov => mov * eurToUsd);
+
+// console.log(movToUsd);
+
+// const k = movements.map(
+//   (mov, i, arr) =>
+//     `Transfer ${i + 1}:You ${mov > 0 ? 'Deposited' : 'Withdrawn'} ${mov}`
+// );
+
+// console.log(k);
