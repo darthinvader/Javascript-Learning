@@ -165,3 +165,15 @@ console.log(containerMovements.innerHTML);
 // currenciesUnique.forEach(function (value, _, set) {
 //   console.log(`${value}`);
 // });
+
+const checkDogs = (dogsJulia, dogsKate) => {
+  dogsJulia = dogsJulia.slice(1);
+  dogsJulia = dogsJulia.slice(0, -2);
+  console.log(dogsJulia);
+
+  dogsJulia.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
+  dogsKate.forEach(age => console.log(age >= 3 ? 'Adult' : 'Puppy'));
+};
+
+const dogsJulia = [1, 2, 3, 4, 5, 6];
+checkDogs(dogsJulia, [1, 2, 3, 4]);
