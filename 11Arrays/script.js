@@ -273,12 +273,21 @@ console.log(accounts);
 // };
 
 // calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+// const eurToUsd = 1.1;
+
+// const totalDepositsUSB = movements
+//   .filter(mov => mov < 0)
+//   .map(mov => mov * eurToUsd)
+//   .reduce((acc, mov) => acc + mov);
+
+// console.log(totalDepositsUSB);
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-const eurToUsd = 1.1;
 
-const totalDepositsUSB = movements
-  .filter(mov => mov < 0)
-  .map(mov => mov * eurToUsd)
-  .reduce((acc, mov) => acc + mov);
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(firstWithdrawal);
 
-console.log(totalDepositsUSB);
+console.log(accounts);
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
