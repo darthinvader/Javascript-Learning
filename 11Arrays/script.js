@@ -79,9 +79,11 @@ const displayMovements = function (movements) {
   });
 };
 
-const calcDisplayBalance = function (movements) {
+const calcDisplayBalance = function (acc) {
+  const movements = acc.movements;
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
+  acc.balance = balance;
 };
 
 const calcDisplaySummary = function (account) {
@@ -103,6 +105,15 @@ const calcDisplaySummary = function (account) {
     .filter(int => int > 1)
     .reduce((acc, int) => acc + int);
   labelSumInterest.textContent = `${interest}€`;
+};
+
+const updateUI = function (account) {
+  // Display Balance
+  calcDisplayBalance(account);
+  // Display Movements
+  displayMovements(account.movements);
+  // Display Summary
+  calcDisplaySummary(account);
 };
 
 const user = 'Steven Thomas Williams';
@@ -139,16 +150,31 @@ btnLogin.addEventListener('click', function (e) {
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
     // Display Balance
-    calcDisplayBalance(currentAccount.movements);
-    // Display Movements
-    displayMovements(currentAccount.movements);
-    // Display Summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
     console.log('Login');
   }
   console.log(currentAccount);
 });
 
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+  if (
+    amount > 0 &&
+    receiverAcc &&
+    amount <= currentAccount.balance &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    updateUI(currentAccount);
+  }
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
