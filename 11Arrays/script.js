@@ -388,3 +388,19 @@ btnClose.addEventListener('click', function (e) {
 // // Seperate Callback
 // const deposit = mov => mov > 0;
 // console.log(movements.some(deposit));
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(Infinity));
+
+const accountMovements = accounts.map(acc => acc.movements).flat();
+console.log(accountMovements);
+
+const overallBalance = accountMovements.reduce((acc, mov) => acc + mov);
+console.log(overallBalance);
+
+const overalBalance = accounts.flatMap(acc => acc.movements);
+console.log(overalBalance);
