@@ -416,14 +416,43 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(overalBalance);
 
 // Strings
-const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
-console.log(owners.sort());
-console.log(owners);
+// const owners = ['Jonas', 'Zach', 'Adam', 'Martha'];
+// console.log(owners.sort());
+// console.log(owners);
 
-// Numbers
-console.log(movements);
-// Return < 0 A,B(keep order)
-// Return > 0 B,A(swith order)
+// // Numbers
+// console.log(movements);
+// // Return < 0 A,B(keep order)
+// // Return > 0 B,A(swith order)
 
-// movements.sort((a, b) => b - a);
-console.log(movements);
+// // movements.sort((a, b) => b - a);
+// console.log(movements);
+
+// let x = new Array(7);
+// // x = x.map(() => 5);
+// console.log(x);
+
+// x.fill(10, 3, 5);
+
+// console.log(x);
+
+// let arr = new Array(10);
+// arr.fill(4, 4, 7);
+// console.log(arr);
+
+// // Array.from
+// const arr2 = Array.from({ length: 7 }, () => 1);
+// console.log(arr2);
+
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
+
+// labelBalance.addEventListener('click', function () {
+//   const movementsUI = Array.from(
+//     document.querySelectorAll('.movements__value'),
+//     el => Number(el.textContent.replace('€', ''))
+//   );
+
+//   const movementsUI2 = [...document.querySelectorAll('.movements__value')];
+//   console.log(movementsUI2);
+// });
