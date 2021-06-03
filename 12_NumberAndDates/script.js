@@ -289,39 +289,71 @@ btnSort.addEventListener('click', function (e) {
 // console.log(Number.isInteger(23.0));
 // console.log(Number.isInteger(23 / 0));
 
-console.log(Math.sqrt(25));
-console.log(25 ** (1 / 2));
-console.log(8 ** (1 / 3));
+// console.log(Math.sqrt(25));
+// console.log(25 ** (1 / 2));
+// console.log(8 ** (1 / 3));
 
-console.log(Math.max(5, 15, 6, 732, 23));
-console.log(Math.max(5, 15, 6, '732', 23));
-console.log(Math.max(5, 15, 6, '732px', 23));
+// console.log(Math.max(5, 15, 6, 732, 23));
+// console.log(Math.max(5, 15, 6, '732', 23));
+// console.log(Math.max(5, 15, 6, '732px', 23));
 
-console.log(Math.min(5, 11, 2, 4));
+// console.log(Math.min(5, 11, 2, 4));
 
-console.log(Math.PI);
-console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// console.log(Math.PI);
+// console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
-console.log(Math.trunc(Math.random() * 6 + 1));
+// console.log(Math.trunc(Math.random() * 6 + 1));
 
-const randomInt = (min, max) => Math.trunc(Math.random() * max - min + 1);
+// const randomInt = (min, max) => Math.trunc(Math.random() * max - min + 1);
 
-console.log(Math.round(2.3));
-console.log(Math.round(2.8));
+// console.log(Math.round(2.3));
+// console.log(Math.round(2.8));
 
-console.log(Math.ceil(2.3));
-console.log(Math.ceil(2.8));
-console.log(Math.ceil('2.8'));
+// console.log(Math.ceil(2.3));
+// console.log(Math.ceil(2.8));
+// console.log(Math.ceil('2.8'));
 
-console.log(Math.floor(2.3));
-console.log(Math.floor(2.8));
-console.log(Math.floor('2.8'));
+// console.log(Math.floor(2.3));
+// console.log(Math.floor(2.8));
+// console.log(Math.floor('2.8'));
 
-console.log(Math.floor(-23.3));
-console.log(Math.trunc(-23.3));
+// console.log(Math.floor(-23.3));
+// console.log(Math.trunc(-23.3));
 
-// Rounding decimals
-console.log((2.7).toFixed(0));
-console.log((2.766).toFixed(1));
-console.log((2.766).toFixed(7));
-console.log(+(2.766).toFixed(7));
+// // Rounding decimals
+// console.log((2.7).toFixed(0));
+// console.log((2.766).toFixed(1));
+// console.log((2.766).toFixed(7));
+// console.log(+(2.766).toFixed(7));
+
+// console.log(5 % 2);
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53);
+console.log(2 ** 53 + 1);
+
+console.log(4565434565456754345654456545654565455445445n);
+console.log(BigInt(4565434565456754345654456545654565455445445));
+
+// Operations
+
+console.log(10000n + 10000n);
+console.log(2198372189382173123n + 9213762783746237849348n);
+
+const huge = 2323232324234242n;
+const num = 23;
+// console.log(huge * num);
+console.log(huge * BigInt(num));
+
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(20n == 20);
+
+console.log(huge + 'Is Really big!!!!');
+
+// console.log(Math.sqrt(16n));
+
+// Divisions
+
+console.log(10n / 3n);
+console.log(10 / 3);
