@@ -195,7 +195,7 @@ const updateUI = function (acc) {
 
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
+let currentAccount, countDown;
 
 btnLogin.addEventListener('click', function (e) {
   // Prevent form from submitting
@@ -230,11 +230,38 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
-
+    // If countdown exists then clear countdown
+    countDown && clearInterval(countDown);
+    countDown = startLogoutTimer();
     // Update UI
     updateUI(currentAccount);
   }
 });
+
+const startLogoutTimer = function () {
+  const tick = function () {
+    time--;
+
+    const min = String(Math.trunc(time / 60)).padStart(2, 0);
+    const sec = String(time % 60).padStart(2, 0);
+    // In each call, print the remaining time to UI
+
+    labelTimer.textContent = `${min}:${sec}`;
+    if (time === 0) {
+      clearInterval(countDown);
+      labelWelcome.textContent = 'Login to get started';
+      containerApp.style.opacity = 0;
+    }
+  };
+
+  // Set time to 5 minutes
+  let time = 30;
+
+  // Call the timer every second
+  const countDown = setInterval(tick, 1000);
+  return countDown;
+  // When 0 seconds, stop timer and log out user
+};
 
 btnTransfer.addEventListener('click', function (e) {
   e.preventDefault();
@@ -259,6 +286,8 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+    countDown && clearInterval(countDown);
+    countDown = startLogoutTimer();
   }
 });
 
@@ -278,6 +307,9 @@ btnLoan.addEventListener('click', function (e) {
     }, 2500);
   }
   inputLoanAmount.value = '';
+
+  countDown && clearInterval(countDown);
+  countDown = startLogoutTimer();
 });
 
 btnClose.addEventListener('click', function (e) {
@@ -473,18 +505,18 @@ containerApp.style.opacity = 1;
 // console.log(new Intl.NumberFormat('en-US', options).format(num));
 // console.log(new Intl.NumberFormat('de-DE', options).format(num));
 
-const ingredients = ['olives'];
+// const ingredients = ['olives'];
 
-const pizzaTimer = setTimeout(
-  (ing1, ing2) => console.log(`Here is your Pizza 🍕 with ${ing1} and ${ing2}`),
-  3000,
-  ...ingredients
-);
+// const pizzaTimer = setTimeout(
+//   (ing1, ing2) => console.log(`Here is your Pizza 🍕 with ${ing1} and ${ing2}`),
+//   3000,
+//   ...ingredients
+// );
 
-console.log('Waiting...');
-if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+// console.log('Waiting...');
+// if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
 
-//
-setInterval(() => {
-  console.log(new Date());
-}, 1000);
+// //
+// setInterval(() => {
+//   console.log(new Date());
+// }, 1000);
