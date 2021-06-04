@@ -30,39 +30,82 @@ document.addEventListener('keydown', function (e) {
   }
 });
 
-//
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
 
-// console.log(document.documentElement);
-// console.log(document.head);
-// console.log(document.body);
+const header = document.querySelector('.header');
+const allSections = document.querySelectorAll('.section');
+console.log(allSections);
 
-// const header = document.querySelector('.header');
-// const allSections = document.querySelectorAll('.section');
-// console.log(allSections);
+document.getElementById('section--1');
 
-// document.getElementById('section--1');
+const allButtons = document.getElementsByTagName('button');
+console.log(allButtons);
 
-// const allButtons = document.getElementsByTagName('button');
-// console.log(allButtons);
+const classBtns = document.getElementsByClassName('btn');
+console.log(classBtns);
 
-// const classBtns = document.getElementsByClassName('btn');
-// console.log(classBtns);
+// Creating and inserting elements
+// .insertAdjacentHTML
+const message = document.createElement('div');
+message.classList.add('cookie-message');
+// message.textContent = 'We use cookes for improved functionality and analytics.';
+message.innerHTML =
+  'We use cookes for improved functionality and analytics.<button class="btn btn--close-cookie">Got it!</button>';
+// header.prepend(message);
+// header.append(message.cloneNode(true));
+// header.before(message);
+header.append(message);
+// header.after(message);
 
-// // Creating and inserting elements
-// // .insertAdjacentHTML
-// const message = document.createElement('div');
-// message.classList.add('cookie-message');
-// // message.textContent = 'We use cookes for improved functionality and analytics.';
-// message.innerHTML =
-//   'We use cookes for improved functionality and analytics.<button class="btn btn--close-cookie">Got it!</button>';
-// // header.prepend(message);
-// // header.append(message.cloneNode(true));
-// // header.before(message);
-// header.append(message);
-// // header.after(message);
+// Delete Elements
+document.querySelector('.btn--close-cookie').addEventListener('click', e => {
+  message.remove();
+  // message.parentElement.removeChild(message);
+});
 
-// // Delete Elements
-// document.querySelector('.btn--close-cookie').addEventListener('click', e => {
-//   message.remove();
-//   // message.parentElement.removeChild(message);
-// });
+// Styles
+message.style.backgroundColor = '#37383d';
+message.style.width = '100%';
+
+console.log(message.style.height);
+console.log(message.style.backgroundColor);
+
+console.log(getComputedStyle(message).color);
+console.log(getComputedStyle(message).height);
+
+message.style.height =
+  Number.parseInt(getComputedStyle(message).height) + 40 + 'px';
+
+document.documentElement.style.setProperty('--color-primary', 'orangered');
+
+// Attributes
+const logo = document.querySelector('.nav__logo');
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.className);
+
+logo.alt = 'Beautiful minimalist logo';
+
+// Non standard
+console.log(logo.designer);
+console.log(logo.getAttribute('designer'));
+
+logo.setAttribute('company', 'Bankist');
+console.log(logo.getAttribute('src'));
+
+const link = document.querySelector('.nav__link--btn');
+console.log(link.href);
+console.log(link.getAttribute('href'));
+
+// Data Attributes
+console.log(logo.dataset.versionNumber);
+
+// Classes
+logo.classList.add('c', 'j');
+logo.classList.remove('c', 'j');
+logo.classList.toggle('c');
+logo.classList.contains('c');
+// Don't use will override all existing classes
+logo.className = 'jonas';
