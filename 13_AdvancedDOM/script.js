@@ -45,13 +45,13 @@ btnScrollTo.addEventListener('click', function (e) {
   section1.scrollIntoView({ behavior: 'smooth' });
 });
 
-const h1 = document.querySelector('h1');
+// const h1 = document.querySelector('h1');
 
-const alertH1 = e => {
-  alert('HEYY');
-  h1.removeEventListener('mouseenter', alertH1);
-};
-h1.addEventListener('mouseenter', alertH1);
+// const alertH1 = e => {
+//   alert('HEYY');
+//   h1.removeEventListener('mouseenter', alertH1);
+// };
+// h1.addEventListener('mouseenter', alertH1);
 
 // h1.onmouseenter = alert;
 
@@ -136,3 +136,38 @@ h1.addEventListener('mouseenter', alertH1);
 // logo.classList.contains('c');
 // // Don't use will override all existing classes
 // logo.className = 'jonas';
+
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min + 1) - min);
+// const randomColor = () =>
+//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)}) `;
+// console.log(randomColor());
+
+// const navLink = document.querySelector('.nav__link');
+// const navLinks = document.querySelector('.nav__links');
+// const nav = document.querySelector('nav');
+// const header = document.querySelector('header');
+
+// navLink.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+//   e.stopPropagation();
+// });
+
+// navLinks.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+// });
+
+// nav.addEventListener('click', function (e) {
+//   e.preventDefault();
+//   this.style.backgroundColor = randomColor();
+// });
+// header.addEventListener(
+//   'click',
+//   function (e) {
+//     e.preventDefault();
+//     this.style.backgroundColor = randomColor();
+//   },
+//   true
+// );
