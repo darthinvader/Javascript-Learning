@@ -195,6 +195,81 @@ const imgObserver = new IntersectionObserver(loadImg, {
 });
 
 imgTargets.forEach(img => imgObserver.observe(img));
+
+// Sliders
+const slides = document.querySelectorAll('.slide');
+const slider = document.querySelector('.slider');
+
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+const dotContainer = document.querySelector('.dots');
+
+let currentSlide = 0;
+const slideAmount = slides.length - 1;
+
+const activateDot = function () {
+  document
+    .querySelectorAll('.dots__dot')
+    .forEach(dot => dot.classList.remove('dots__dot--active'));
+
+  document
+    .querySelector(`.dots__dot[data-slide="${currentSlide}"]`)
+    ?.classList.add('dots__dot--active');
+};
+
+const goToSlide = function () {
+  slides.forEach((slide, index) => {
+    slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+  });
+  activateDot();
+};
+
+const nextSlide = function () {
+  currentSlide < slideAmount && currentSlide++;
+  goToSlide();
+};
+const prvSlide = function () {
+  currentSlide > 0 && currentSlide--;
+  goToSlide();
+};
+
+btnRight.addEventListener('click', nextSlide);
+
+btnLeft.addEventListener('click', prvSlide);
+
+// Slides 2
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowLeft') {
+    prvSlide();
+  } else if (e.key === 'ArrowRight') {
+    nextSlide();
+  }
+  console.log(e);
+});
+
+const createDots = function () {
+  slides.forEach((_, i) => {
+    dotContainer.insertAdjacentHTML(
+      'beforeend',
+      `<button class="dots__dot" data-slide="${i}"></button>`
+    );
+  });
+};
+
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    console.log('DOT');
+    currentSlide = e.target.dataset.slide;
+    goToSlide();
+  }
+});
+
+const initSlides = function () {
+  createDots();
+  goToSlide();
+};
+
+initSlides();
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
