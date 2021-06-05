@@ -133,7 +133,6 @@ const handleHover = function (e) {
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  console.log(entry);
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
   } else {
@@ -149,6 +148,26 @@ const headerObserver = new IntersectionObserver(stickyNav, {
   rootMargin: `-${nav.getBoundingClientRect().height}px`,
 });
 headerObserver.observe(header);
+
+// Reveal sections
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  observer.unobserve(entry.target);
+};
+
+const options = { root: null, threshold: 0.15 };
+
+const sectionObserver = new IntersectionObserver(revealSection, options);
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
+});
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////
