@@ -65,3 +65,35 @@ console.log(arr.unique());
 const h1 = document.querySelector('h1');
 console.log(h1.__proto__);
 console.dir(x => x + 1);
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(this.speed);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(this.speed);
+};
+
+const car = new Car(0, 0);
+car.accelerate();
+car.accelerate();
+car.accelerate();
+car.accelerate();
+car.brake();
+car.accelerate();
+
+const car2 = new Car('Helo', 5000);
+car2.brake();
+car2.brake();
+car2.brake();
+car2.brake();
+car2.brake();
+console.log(car);
+console.log(car2);
