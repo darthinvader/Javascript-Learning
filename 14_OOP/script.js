@@ -405,70 +405,103 @@
 // Private Fields
 // Public Methods
 // Private Methods
-class Account {
-  // Public Fields
-  locale = navigator.language;
+// class Account {
+//   // Public Fields
+//   locale = navigator.language;
 
-  // Private Fields
-  #movements = [];
-  #pin;
-  constructor(owner, currency, pin) {
-    this.owner = owner;
-    this.currency = currency;
-    // Protected Properties
-    this.#pin = pin;
-    // this._movements = [];
-    // this.locale = navigator.language;
+//   // Private Fields
+//   #movements = [];
+//   #pin;
+//   constructor(owner, currency, pin) {
+//     this.owner = owner;
+//     this.currency = currency;
+//     // Protected Properties
+//     this.#pin = pin;
+//     // this._movements = [];
+//     // this.locale = navigator.language;
 
-    console.log(`Thanks for opening and account ${owner}`);
+//     console.log(`Thanks for opening and account ${owner}`);
+//   }
+
+//   // Public Methods
+
+//   getMovements() {
+//     return this.#movements;
+//   }
+
+//   deposit(value) {
+//     this.#movements.push(value);
+//     return this;
+//   }
+//   withdraw(value) {
+//     this.deposit(-value);
+//     return this;
+//   }
+
+//   requestLoan(value) {
+//     if (this.#approveLoan(value)) {
+//       this.deposit(value);
+//       console.log('Loan Approved');
+//     }
+//     return this;
+//   }
+
+//   // Private Methods
+//   #approveLoan(val) {
+//     return true;
+//   }
+
+//   // Static
+//   static helper() {
+//     console.log(`static method`);
+//   }
+// }
+
+// const acc1 = new Account('Jonas', 'EUR', 1111);
+// acc1.deposit(250);
+// acc1.withdraw(140);
+// console.log(acc1);
+// console.log(acc1.getMovements());
+// acc1.requestLoan(100);
+// Account.helper();
+// // Private field
+// // console.log(acc1.#movements);
+
+// // Chaining
+
+// acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+
+// console.log(acc1);
+
+class CarCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
   }
-
-  // Public Methods
-
-  getMovements() {
-    return this.#movements;
-  }
-
-  deposit(value) {
-    this.#movements.push(value);
+  brake() {
+    this.speed -= 5;
     return this;
-  }
-  withdraw(value) {
-    this.deposit(-value);
-    return this;
-  }
-
-  requestLoan(value) {
-    if (this.#approveLoan(value)) {
-      this.deposit(value);
-      console.log('Loan Approved');
-    }
-    return this;
-  }
-
-  // Private Methods
-  #approveLoan(val) {
-    return true;
-  }
-
-  // Static
-  static helper() {
-    console.log(`static method`);
   }
 }
 
-const acc1 = new Account('Jonas', 'EUR', 1111);
-acc1.deposit(250);
-acc1.withdraw(140);
-console.log(acc1);
-console.log(acc1.getMovements());
-acc1.requestLoan(100);
-Account.helper();
-// Private field
-// console.log(acc1.#movements);
+class EVCl extends CarCl {
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.charge = charge;
+  }
 
-// Chaining
+  chargeBattery() {
+    this.charge += 10;
+    return this;
+  }
 
-acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+  accelerate() {
+    this.speed += 10;
+    this.charge--;
+    return this;
+  }
+}
 
-console.log(acc1);
+const rivian = new EVCl('rivian', 120, 23);
+rivian.chargeBattery().accelerate().brake().accelerate();
+console.log(rivian);
