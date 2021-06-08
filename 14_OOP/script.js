@@ -401,38 +401,56 @@
 // jay.init('Jay', 2010, 'Computer Science');
 // console.log(jay);
 
+// Public Fields
+// Private Fields
+// Public Methods
+// Private Methods
 class Account {
+  // Public Fields
+  locale = navigator.language;
+
+  // Private Fields
+  #movements = [];
+  #pin;
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
     // Protected Properties
-    this._pin = pin;
-    this._movements = [];
-    this.locale = navigator.language;
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
 
     console.log(`Thanks for opening and account ${owner}`);
   }
 
+  // Public Methods
+
   getMovements() {
-    return this._movements;
+    return this.#movements;
   }
 
   deposit(value) {
-    this._movements.push(value);
+    this.#movements.push(value);
   }
   withdraw(value) {
     this.deposit(-value);
   }
 
-  _approveLoan(val) {
-    return true;
-  }
-
-  requestLoad(value) {
-    if (this._approveLoan(value)) {
+  requestLoan(value) {
+    if (this.#approveLoan(value)) {
       this.deposit(value);
       console.log('Loan Approved');
     }
+  }
+
+  // Private Methods
+  #approveLoan(val) {
+    return true;
+  }
+
+  // Static
+  static helper() {
+    console.log(`static method`);
   }
 }
 
@@ -440,5 +458,8 @@ const acc1 = new Account('Jonas', 'EUR', 1111);
 acc1.deposit(250);
 acc1.withdraw(140);
 console.log(acc1);
-
-console.log(acc1.pin);
+console.log(acc1.getMovements());
+acc1.requestLoan(100);
+Account.helper();
+// Private field
+// console.log(acc1.#movements);
