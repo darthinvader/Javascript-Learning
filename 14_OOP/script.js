@@ -131,6 +131,10 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  static hey() {
+    console.log('Hey 🙋‍♀️');
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
@@ -169,3 +173,15 @@ console.log(account.latest);
 console.log(jessica.age);
 
 const walter = new PersonCl('Walter', 1965);
+
+const h1arr = Array.from(document.querySelectorAll('h1'));
+console.log(h1arr);
+
+Person.hey = function () {
+  console.log('Hey There 🙋‍♀️');
+};
+
+Person.hey();
+// jonas.hey();
+
+PersonCl.hey();
