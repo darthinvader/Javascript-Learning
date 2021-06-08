@@ -431,9 +431,11 @@ class Account {
 
   deposit(value) {
     this.#movements.push(value);
+    return this;
   }
   withdraw(value) {
     this.deposit(-value);
+    return this;
   }
 
   requestLoan(value) {
@@ -441,6 +443,7 @@ class Account {
       this.deposit(value);
       console.log('Loan Approved');
     }
+    return this;
   }
 
   // Private Methods
@@ -463,3 +466,9 @@ acc1.requestLoan(100);
 Account.helper();
 // Private field
 // console.log(acc1.#movements);
+
+// Chaining
+
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+
+console.log(acc1);
