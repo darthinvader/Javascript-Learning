@@ -286,29 +286,117 @@
 //   }
 // }
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
+
+// const EV = function (make, speed, charge) {
+//   Car.call(this, make, speed);
+//   this.charge = charge;
+// };
+
+// EV.prototype = Object.create(Car.prototype);
+
+// EV.prototype.chargeBattery = function (chargeTo) {
+//   this.charge = chargeTo;
+// };
+
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge -= 1;
+//   console.log(
+//     `${this.make} going at ${this.speed}m/s with a charge of ${this.charge}%`
+//   );
+// };
+
+// const tesla = new EV('Tesla', 120, 90);
+// console.log(tesla);
+
+// class PersonCl {
+//   constructor(fullName, birthYear) {
+//     this.fullName = fullName;
+//     this.birthYear = birthYear;
+//   }
+
+//   // Methods will be added to .prototype property
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   }
+
+//   greet() {
+//     console.log(`Hey ${this.firstName}`);
+//   }
+
+//   get age() {
+//     return 2037 - this.birthYear;
+//   }
+//   // Set a property that already exists
+//   set fullName(name) {
+//     if (name.includes(' ')) {
+//       this._fullName = name;
+//     } else {
+//       console.log('This is not a full name');
+//     }
+//   }
+
+//   get fullName() {
+//     return this._fullName;
+//   }
+
+//   static hey() {
+//     console.log('Hey 🙋‍♀️');
+//   }
+// }
+// class Student extends PersonCl {
+//   constructor(fullName, birthYear, course) {
+//     super(fullName, birthYear);
+//     this.course = course;
+//   }
+
+//   introduce() {
+//     console.log(
+//       `My name is ${this.fullName} and I am ${this.calcAge()} and I study ${
+//         this.course
+//       }`
+//     );
+//   }
+
+//   calcAge() {
+//     console.log(
+//       `I'm ${
+//         2037 - this.birthYear
+//       } years old but as a student I feel more like ${
+//         2037 - this.birthYear + 10
+//       }`
+//     );
+//   }
+// }
+
+// const martha = new Student('Martha Jones', 2012, 'Computer Science');
+// console.log(martha);
+// martha.introduce();
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
 };
 
-const EV = function (make, speed, charge) {
-  Car.call(this, make, speed);
-  this.charge = charge;
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
 };
 
-EV.prototype = Object.create(Car.prototype);
-
-EV.prototype.chargeBattery = function (chargeTo) {
-  this.charge = chargeTo;
-};
-
-EV.prototype.accelerate = function () {
-  this.speed += 20;
-  this.charge -= 1;
-  console.log(
-    `${this.make} going at ${this.speed}m/s with a charge of ${this.charge}%`
-  );
-};
-
-const tesla = new EV('Tesla', 120, 90);
-console.log(tesla);
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+console.log(jay);
