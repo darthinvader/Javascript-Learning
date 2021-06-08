@@ -66,37 +66,37 @@ const h1 = document.querySelector('h1');
 console.log(h1.__proto__);
 console.dir(x => x + 1);
 
-const Car = function (make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+// const Car = function (make, speed) {
+//   this.make = make;
+//   this.speed = speed;
+// };
 
-Car.prototype.accelerate = function () {
-  this.speed += 10;
-  console.log(this.speed);
-};
+// Car.prototype.accelerate = function () {
+//   this.speed += 10;
+//   console.log(this.speed);
+// };
 
-Car.prototype.brake = function () {
-  this.speed -= 5;
-  console.log(this.speed);
-};
+// Car.prototype.brake = function () {
+//   this.speed -= 5;
+//   console.log(this.speed);
+// };
 
-const car = new Car(0, 0);
-car.accelerate();
-car.accelerate();
-car.accelerate();
-car.accelerate();
-car.brake();
-car.accelerate();
+// const car = new Car(0, 0);
+// car.accelerate();
+// car.accelerate();
+// car.accelerate();
+// car.accelerate();
+// car.brake();
+// car.accelerate();
 
-const car2 = new Car('Helo', 5000);
-car2.brake();
-car2.brake();
-car2.brake();
-car2.brake();
-car2.brake();
-console.log(car);
-console.log(car2);
+// const car2 = new Car('Helo', 5000);
+// car2.brake();
+// car2.brake();
+// car2.brake();
+// car2.brake();
+// car2.brake();
+// console.log(car);
+// console.log(car2);
 
 // Class expression
 // const PersonCl = class {};
@@ -185,3 +185,52 @@ Person.hey();
 // jonas.hey();
 
 PersonCl.hey();
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+steven.name = 'Steven';
+steven.birthYear = 2002;
+console.log(steven);
+steven.calcAge();
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1991);
+console.log(sarah);
+
+class Car {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+
+  accelerate() {
+    this.speed += 10;
+  }
+
+  brake() {
+    this.speed -= 5;
+  }
+}
+
+const car = new Car('Honda', 100);
+
+console.log(car.speedUS);
+car.speedUS = 100;
+console.log(car.speedUS);
