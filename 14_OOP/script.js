@@ -377,26 +377,63 @@
 // console.log(martha);
 // martha.introduce();
 
-const PersonProto = {
-  calcAge() {
-    console.log(2037 - this.birthYear);
-  },
+// const PersonProto = {
+//   calcAge() {
+//     console.log(2037 - this.birthYear);
+//   },
 
-  init(firstName, birthYear) {
-    this.firstName = firstName;
-    this.birthYear = birthYear;
-  },
-};
+//   init(firstName, birthYear) {
+//     this.firstName = firstName;
+//     this.birthYear = birthYear;
+//   },
+// };
 
-const steven = Object.create(PersonProto);
+// const steven = Object.create(PersonProto);
 
-const StudentProto = Object.create(PersonProto);
+// const StudentProto = Object.create(PersonProto);
 
-StudentProto.init = function (firstName, birthYear, course) {
-  PersonProto.init.call(this, firstName, birthYear);
-  this.course = course;
-};
+// StudentProto.init = function (firstName, birthYear, course) {
+//   PersonProto.init.call(this, firstName, birthYear);
+//   this.course = course;
+// };
 
-const jay = Object.create(StudentProto);
-jay.init('Jay', 2010, 'Computer Science');
-console.log(jay);
+// const jay = Object.create(StudentProto);
+// jay.init('Jay', 2010, 'Computer Science');
+// console.log(jay);
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening and account ${owner}`);
+  }
+
+  deposit(value) {
+    this.movements.push(value);
+  }
+  withdraw(value) {
+    this.deposit(-value);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoad(value) {
+    if (this.approveLoan(value)) {
+      this.deposit(value);
+      console.log('Loan Approved');
+    }
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111);
+acc1.deposit(250);
+acc1.withdraw(140);
+console.log(acc1);
+
+console.log(acc1.pin);
