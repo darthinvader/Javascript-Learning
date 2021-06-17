@@ -239,14 +239,32 @@ const whereAmI = async function (country) {
     const data = await res.json();
     console.log(data);
     renderCountry(data[0]);
+
+    return `You are in ${country}`;
   } catch (err) {
     console.error(err);
     renderError(`Something went wrong ${err.message}`);
+    // Reject promise from async function
+    throw err;
   }
 };
+console.log('1:Will get location');
+// const city = whereAmI('portugal');
+whereAmI('sad')
+  .then(city => console.log(city))
+  .catch(err => console.error(err))
+  .finally(() => console.log('3:Finished getting location'));
+// console.log(city);
 
-whereAmI('portugal');
-
+(async function () {
+  try {
+    const country = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (err) {
+    console.error(`2:${err.message}`);
+  }
+  console.log('3 Finished getting location');
+})();
 // try {
 //   let y = 1;
 //   const x = 2;
