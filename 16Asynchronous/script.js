@@ -26,10 +26,10 @@ const renderCountry = function (data, className = '') {
   countriesContainer.style.opacity = 1;
 };
 
-// const renderError = function (msg) {
-//   countriesContainer.insertAdjacentText('beforeend', msg);
-//   countriesContainer.style.opacity = 1;
-// };
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
 // // const getCountryAndNeighbour = function (country) {
 // //   // AJAX call country 1
 // //   const request = new XMLHttpRequest();
@@ -233,11 +233,24 @@ const renderCountry = function (data, className = '') {
 //   });
 
 const whereAmI = async function (country) {
-  const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
-
-  const data = await res.json();
-  console.log(data);
-  renderCountry(data[0]);
+  try {
+    const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
+    if (!res) throw new Error('Problem getting location data!');
+    const data = await res.json();
+    console.log(data);
+    renderCountry(data[0]);
+  } catch (err) {
+    console.error(err);
+    renderError(`Something went wrong ${err.message}`);
+  }
 };
 
 whereAmI('portugal');
+
+// try {
+//   let y = 1;
+//   const x = 2;
+//   x = y;
+// } catch (err) {
+//   alert(err);
+// }
