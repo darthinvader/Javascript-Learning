@@ -109,12 +109,12 @@ const renderError = function (msg) {
 // //   getCountryData('portugal');
 // // });
 
-const getJSON = function (url, errorMsg = 'Something went wrong') {
-  return fetch(url).then(response => {
-    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
-    return response.json();
-  });
-};
+// const getJSON = function (url, errorMsg = 'Something went wrong') {
+//   return fetch(url).then(response => {
+//     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+//     return response.json();
+//   });
+// };
 
 // const getCountryData = function (country) {
 //   getJSON(
@@ -232,22 +232,22 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 //     console.log(err);
 //   });
 
-const whereAmI = async function (country) {
-  try {
-    const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
-    if (!res) throw new Error('Problem getting location data!');
-    const data = await res.json();
-    console.log(data);
-    renderCountry(data[0]);
+// const whereAmI = async function (country) {
+//   try {
+//     const res = await fetch(`https://restcountries.eu/rest/v2/name/${country}`);
+//     if (!res) throw new Error('Problem getting location data!');
+//     const data = await res.json();
+//     console.log(data);
+//     renderCountry(data[0]);
 
-    return `You are in ${country}`;
-  } catch (err) {
-    console.error(err);
-    renderError(`Something went wrong ${err.message}`);
-    // Reject promise from async function
-    throw err;
-  }
-};
+//     return `You are in ${country}`;
+//   } catch (err) {
+//     console.error(err);
+//     renderError(`Something went wrong ${err.message}`);
+//     // Reject promise from async function
+//     throw err;
+//   }
+// };
 // console.log('1:Will get location');
 // const city = whereAmI('portugal');
 // whereAmI('sad')
@@ -287,49 +287,49 @@ const whereAmI = async function (country) {
 // get3Countries('portugal', 'canada', 'tanzania');
 
 // Promise.race
-(async function () {
-  const res = await Promise.race([
-    getJSON(`https://restcountries.eu/rest/v2/name/egypt`),
-    getJSON(`https://restcountries.eu/rest/v2/name/portugal`),
-    getJSON(`https://restcountries.eu/rest/v2/name/mexico`),
-  ]);
-  console.log(res[0]);
-})();
+// (async function () {
+//   const res = await Promise.race([
+//     getJSON(`https://restcountries.eu/rest/v2/name/egypt`),
+//     getJSON(`https://restcountries.eu/rest/v2/name/portugal`),
+//     getJSON(`https://restcountries.eu/rest/v2/name/mexico`),
+//   ]);
+//   console.log(res[0]);
+// })();
 
-const timeout = function (sec) {
-  return new Promise(function (_, reject) {
-    setTimeout(function () {
-      reject(new Error('Request took too long!'));
-    }, sec * 1000);
-  });
-};
+// const timeout = function (sec) {
+//   return new Promise(function (_, reject) {
+//     setTimeout(function () {
+//       reject(new Error('Request took too long!'));
+//     }, sec * 1000);
+//   });
+// };
 
-Promise.race([
-  getJSON(`https://restcountries.eu/rest/v2/name/tanzania`),
-  timeout(1),
-])
-  .then(res => console.log(res[0]))
-  .catch(err => console.error(err));
+// Promise.race([
+//   getJSON(`https://restcountries.eu/rest/v2/name/tanzania`),
+//   timeout(1),
+// ])
+//   .then(res => console.log(res[0]))
+//   .catch(err => console.error(err));
 
-//Promise.all Settled
-Promise.allSettled([
-  Promise.resolve('Success'),
-  Promise.reject('Error'),
-  Promise.resolve('Another success'),
-]).then(res => console.log(res));
+// //Promise.all Settled
+// Promise.allSettled([
+//   Promise.resolve('Success'),
+//   Promise.reject('Error'),
+//   Promise.resolve('Another success'),
+// ]).then(res => console.log(res));
 
-Promise.all([
-  Promise.resolve('Success'),
-  Promise.reject('Error'),
-  Promise.resolve('Another success'),
-])
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
+// Promise.all([
+//   Promise.resolve('Success'),
+//   Promise.reject('Error'),
+//   Promise.resolve('Another success'),
+// ])
+//   .then(res => console.log(res))
+//   .catch(err => console.error(err));
 
-Promise.any([
-  Promise.resolve('Success'),
-  Promise.reject('Error'),
-  Promise.resolve('Another success'),
-])
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
+// Promise.any([
+//   Promise.resolve('Success'),
+//   Promise.reject('Error'),
+//   Promise.resolve('Another success'),
+// ])
+//   .then(res => console.log(res))
+//   .catch(err => console.error(err));
