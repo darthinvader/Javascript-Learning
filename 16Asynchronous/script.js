@@ -109,12 +109,12 @@ const renderError = function (msg) {
 // //   getCountryData('portugal');
 // // });
 
-// const getJSON = function (url, errorMsg = 'Something went wrong') {
-//   return fetch(url).then(response => {
-//     if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
-//     return response.json();
-//   });
-// };
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+    return response.json();
+  });
+};
 
 // const getCountryData = function (country) {
 //   getJSON(
@@ -256,15 +256,15 @@ whereAmI('sad')
   .finally(() => console.log('3:Finished getting location'));
 // console.log(city);
 
-(async function () {
-  try {
-    const country = await whereAmI();
-    console.log(`2: ${city}`);
-  } catch (err) {
-    console.error(`2:${err.message}`);
-  }
-  console.log('3 Finished getting location');
-})();
+// (async function () {
+//   try {
+//     const country = await whereAmI();
+//     console.log(`2: ${city}`);
+//   } catch (err) {
+//     console.error(`2:${err.message}`);
+//   }
+//   console.log('3 Finished getting location');
+// })();
 // try {
 //   let y = 1;
 //   const x = 2;
@@ -272,3 +272,16 @@ whereAmI('sad')
 // } catch (err) {
 //   alert(err);
 // }
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    const data = await Promise.all([
+      getJSON(`https://restcountries.eu/rest/v2/name/${c1}`),
+      getJSON(`https://restcountries.eu/rest/v2/name/${c3}`),
+      getJSON(`https://restcountries.eu/rest/v2/name/${c2}`),
+    ]);
+
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {}
+};
+get3Countries('portugal', 'canada', 'tanzania');
