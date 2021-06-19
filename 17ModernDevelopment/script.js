@@ -17,31 +17,42 @@
 // add('apples', 4);
 // console.log(cart);
 
-const shoppingCart2 = (function () {
-  const cart = [];
-  const shippingCost = 10;
-  const totalPrice = 237;
-  const totalQuantity = 123;
+// const shoppingCart2 = (function () {
+//   const cart = [];
+//   const shippingCost = 10;
+//   const totalPrice = 237;
+//   const totalQuantity = 123;
 
-  const addToCart = function (product, quantity) {
-    cart.push({ product, quantity });
-    console.log(
-      `${quantity} ${product} added to the cart (shipping cost is ${shippingCost})`
-    );
-  };
+//   const addToCart = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(
+//       `${quantity} ${product} added to the cart (shipping cost is ${shippingCost})`
+//     );
+//   };
 
-  const orderStock = function (product, quantity) {
-    console.log(`${quantity} ${product} ordered from supplier`);
-  };
+//   const orderStock = function (product, quantity) {
+//     console.log(`${quantity} ${product} ordered from supplier`);
+//   };
 
-  return {
-    addToCart,
-    cart,
-    totalPrice,
-    totalQuantity,
-  };
-})();
+//   return {
+//     addToCart,
+//     cart,
+//     totalPrice,
+//     totalQuantity,
+//   };
+// })();
 
-shoppingCart2.addToCart('apple', 4);
-shoppingCart2.addToCart('pizza', 2);
-console.log(shoppingCart2);
+// shoppingCart2.addToCart('apple', 4);
+// shoppingCart2.addToCart('pizza', 2);
+// console.log(shoppingCart2);
+
+// Export
+// export.addToCart = function (product, quantity) {
+//     cart.push({ product, quantity });
+//     console.log(
+//       `${quantity} ${product} added to the cart (shipping cost is ${shippingCost})`
+//     );
+//   };
+
+// // Import
+// const {addToCart} = require('./shoppingCart.js')
